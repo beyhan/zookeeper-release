@@ -1,5 +1,7 @@
 <% peers = link('peers') %>
 
+test.key=<% link("test").p('test.key') %>
+
 <% peers.instances.each do |instance| %>
 server.<%= instance.index+1 %>=<%= (instance.id == spec.id) ? "0.0.0.0" : instance.address %>:<%= peers.p('quorum_port') %>:<%= peers.p('leader_election_port') %>
 <% end %>

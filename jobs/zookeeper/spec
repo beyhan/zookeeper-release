@@ -8,6 +8,8 @@ packages:
 consumes:
 - name: peers
   type: zookeeper_peers
+- name: test
+  type: test
 
 provides:
 - name: conn
@@ -20,7 +22,11 @@ provides:
   - client_port
   - quorum_port
   - leader_election_port
-
+- name: test
+  type: test
+  properties:
+  - test.key
+  
 templates:
   ctl.erb: bin/ctl
   pre-start.erb: bin/pre-start
@@ -94,3 +100,5 @@ properties:
   force_sync:
     description: "Requires updates to be synced to media of the transaction log before finishing processing the update. Setting to 'no' improves performance dramatically at the cost of losing recent commits if all nodes crash at the same time"
     default: "yes"
+  test.key:
+    description: "Test bosh links with Credhub json values"

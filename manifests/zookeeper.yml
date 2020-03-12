@@ -26,7 +26,8 @@ instance_groups:
     release: zookeeper
     provides:
       conn: {shared: true}
-    properties: {}
+    properties: 
+      test: ((/test/bosh/link/json))
   - name: status
     release: zookeeper
     properties: {}
